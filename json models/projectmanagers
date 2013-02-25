@@ -1,0 +1,4 @@
+http://127.0.0.1:8000/NPVClarity/projectmanagers/?format=json
+
+{"count": 4, "next": null, "previous": null, "results": [{"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/9/", "last_name": "Walden", "first_name": "David"}, {"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/10/", "last_name": "Strohl", "first_name": "Keith"}, {"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/11/", "last_name": "Carr", "first_name": "Becky"}, {"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/12/", "last_name": "Wrzesinski", "first_name": "John"}]}
+

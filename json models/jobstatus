@@ -1,0 +1,3 @@
+http://127.0.0.1:8000/NPVClarity/jobstatus/?format=json
+
+{"count": 4, "next": null, "previous": null, "results": [{"url": "http://127.0.0.1:8000/NPVClarity/jobstatus/13/", "job_status": "On Hold"}, {"url": "http://127.0.0.1:8000/NPVClarity/jobstatus/14/", "job_status": "Cancelled"}, {"url": "http://127.0.0.1:8000/NPVClarity/jobstatus/15/", "job_status": "Active"}, {"url": "http://127.0.0.1:8000/NPVClarity/jobstatus/16/", "job_status": "Completed"}]}

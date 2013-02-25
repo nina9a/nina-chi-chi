@@ -1,0 +1,160 @@
+/* ===== Primary Styles ========================================================
+	Engagement Letter Form
+  ==========================================================================  */
+
+  .clearfix:after {
+  	content: " ";
+  	display: block;
+  	height: 0;
+  	clear: both;
+  	visibility: hidden;
+  }
+
+/* === BASE ELEMENT STYLES === */
+  body {
+  	font-size: 12px;
+  	color: #2e6e9e;
+  }
+
+  input {
+    color: #2e6e9e;
+  }
+
+/* ===================== */
+/*     HEADER STYLES     */
+/* ===================== */
+  #logo,
+  #new_save_find_cancel {
+  	float:left;
+  	margin-right:20px;
+  }
+  /* == Top Menu Styles == */
+  #new_save_find_cancel {
+  	padding-top: 20px;
+  }
+  #new_save_find_cancel fieldset {
+  	width:245px;
+  	padding: 5px 5px;
+    float: left;
+  }
+  #new_save_find_cancel #search_field {
+    margin-left: 10px;
+    margin-top: 5px;
+    float: left;
+  }
+  #new_save_find_cancel #search_field input {
+    width: 250px;
+  }
+
+/* ===================================== */
+/*     ENGAGEMENT LETTER ROOT STYLES     */
+/* ===================================== */
+  #engagement_letter {
+  	margin-top: 2.5em;
+  }
+
+/* ======================== */
+/*     PAGE LEFT STYLES     */
+/* ======================== */
+  #page-left {
+  	width: 520px;
+  	padding: 0 10px;
+  	float: left;
+  	padding-bottom: 55px;
+  }
+  /* == Engagement Info Styles == */
+  	#engagement_info label,
+	  #contract_details label,
+	  #client_info label,
+	  #property_info label,
+	  #engagement_info legend,
+	  #contract_details legend,
+	  #client_info legend,
+	  #property_info legend,
+    #new_save_find_cancel legend,
+	  .contract_year {
+	  	color: #2e6e9e;
+	  }
+	  #engagement_info legend,
+	  #contract_details legend,
+	  #client_info legend,
+	  #property_info legend {
+	  	font-weight: bold;
+	  }
+	  #engagement_info select,
+	  #client_info select,
+	  #property_info select {
+	  	width: 70%;
+	  }
+	  #property_info #property_state {
+	  	width: 18%;
+	  }
+	  #engagement_info button {
+	  	margin-top: 0.5em;
+    }
+
+    .view_edit_feesplit {
+      padding-left: 2em;
+    }
+    .feesplit_input {
+      margin-right: 1em;
+    }
+  #engagement_info .engagement_reviewer_label {
+    display: block;
+  }
+  /* == Contract Details Styles == */
+  	#contract_details,
+  	#property_info {
+  		margin-top: 1.5em;
+  	}
+  	.contract_status {
+  		width: 20%;
+  	}
+  	  .contract_year {
+  	  	line-height: 2em;
+  	  	margin-bottom: 1.5em;
+  	  }
+  	  #contract_add_year {
+  	  	margin-bottom: 1.5em;
+  	  }
+
+  #change_delivery_block {
+    border: 1px solid #a6c9e2;
+    color: #2e6e9e;
+    background-color: rgb(244, 250, 255);
+
+    padding: 8px;
+  }
+  #change_delivery_block textarea {
+    width: 98%;
+    height: 55px;
+    color: #2e6e9e;
+  }
+
+/* ========================= */
+/*     PAGE RIGHT STYLES     */
+/* ========================= */
+  #page-right {
+  	width: 500px;
+  	float: left;
+  	padding-bottom: 55px;
+  }
+  #property_details_top label {
+    display: block;
+    width: 337px;
+  }
+  #property_details_top label input,
+  #property_details_top label select+span {
+    float: right;
+  }
+
+  #client_info_block {
+    border: 1px solid #a6c9e2;
+    padding: 4px;
+    min-height: 80px;
+    color: #2e6e9e;
+    background-color: rgb(244, 250, 255);
+  }
+  #client_info_block p {
+    margin: 0.25em;
+  }

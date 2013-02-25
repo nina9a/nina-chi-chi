@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+  <title>Engagement Letter Form Mockup</title>
+  
+  <!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+  <![endif]-->  
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />
+  <link rel="stylesheet" href="http://dl.dropbox.com/u/1741138/jquery.ui.selectmenu.css" />
+  
+</head>
+
+<body>
+  <header class="clearfix"> <!-- TOP HEADER - LOGO - TOP MENU - SEARCH BAR -->
+    <img src="logo.png" id="logo" />
+    <form id="new_save_find_cancel">
+        <fieldset class="ui-widget ui-widget-content">
+          <button id="letter_new">New</button>
+          <button class="letter_save">Save</button>
+          <button id="letter_cancel">Cancel</button>
+        </fieldset>
+        <div id="search_field">
+          <input type="text" />
+          <button id="letter_search">Search</button>
+        </div>
+      </form>
+  </header> <!-- END TOP HEADER -->
+
+  <form id="engagement_letter" class="clearfix">
+
+    <div id="page-left"> <!-- ***LEFT COLUMN*** -->
+
+         <fieldset id="engagement_info" class="ui-widget ui-widget-content"> <!-- //ENGAGEMENT INFO// -->
+          <legend>Engagement Assignment Information</legend>
+          <!-- engagement letter assignment info is:
+            office assigned to
+            project manager
+            list of appraisers, option to override fee split, make primary appraiser
+              add appraiser, button to add more
+              want to make fee split edits hidden unless checked, make the edit, hide again?
+            list of reviewers
+              add reviewer, button to add more 
+          -->
+          <select id="engagement_office" name="engagement_office">
+            <option>Atlanta</option>
+            <option>Chicago</option>
+            <option>Los Angeles</option>
+          </select>
+          <label for="engagement_office">Office</label>
+          <br/><br/>
+
+          <select id="engagement_manager" name="engagement_manager">
+            <option>Becky Carr</option>
+            <option>Keith Strohl</option>
+            <option>David Walden</option>
+            <option>John Wrzesinski</option>
+          </select>
+          <label for="engagement_manager">Project Manager</label>
+          <br/><br/>
+
+          <div class="appraiser_block">
+            <label>
+            <select class="engagement_appraiser" name="engagement_appraiser">
+              <option>Becky Carr</option>
+              <option>Keith Strohl</option>
+              <option>David Walden</option>
+              <option>John Wrzesinski</option>
+            </select>
+            Appraiser</label>
+            <br/>
+            <button class="feesplit_info" >View/Edit Fee Split</button>
+            <br/>
+          </div>
+          <button id="add_appraiser">Add Appraiser</button>
+          <br/><br/>
+
+          <select class="engagement_reviewer" name="engagement_reviewer">
+            <option>Becky Carr</option>
+            <option>Keith Strohl</option>
+            <option>David Walden</option>
+            <option>John Wrzesinski</option>
+          </select>
+          <label>Reviewer</label>
+          <br/>
+          <button id="add_reviewer" >Add Reviewer</button>          
+         
+        </fieldset> <!-- //END ENGAGEMENT INFO// -->
+
+        <fieldset id="contract_details" class="ui-widget ui-widget-content"> <!-- //CONTRACT DETAILS// -->
+        <legend>Contract Details</legend>
+        <!-- contract details are:
+          status
+          contract type (single year, multi year, quarterly fees)
+          draft delivery date
+            option to update draft delivery date
+            must comment why date changed
+          final delivery date
+            option to update final deivery date
+            must comment why date changed
+          report type
+        -->
+        <!-- contract status-->
+         <select id="contract_status" name="contract_status">
+          <option>Active</option>
+          <option>Cancelled</option>
+          <option>Completed</option>
+          <option>On Hold</option>
+        </select>
+        <label for="<option>contract_status</option>">Contract Status</label>
+        <br/>
+        <br/>
+       
+        <!-- contract type-->
+        <div id="contract_type">
+          <input type="radio" id="contract_single" name="contract_type" checked="checked" /><label for="contract_single">Single Year</label>
+          <input type="radio" id="contract_single_fees" name="contract_type" /><label for="contract_single_fees">Single Year (Fees)</label>
+          <input type="radio" id="contract_multi" name="contract_type" /><label for="contract_multi">Multi-Year</label>
+          <input type="radio" id="contract_multi_fees" name="contract_type" /><label for="contract_multi_fees">Multi-Year (Fees)</label>
+        </div><br/>
+
+        <button id="contract_add_year" style="display:none">Add Year</button><br/>
+
+        <!-- delivery dates-->
+        <label>Draft Delivery Date: <input type="text" class="contract_datepicker" /></label>
+        <br/><br/>
+        <button id="edit_final_date" >Change Final Delivery Date</button>     
+      </fieldset> <!-- //END CONTRACT DETAILS// -->
+
+    </div> <!-- ***END LEFT COLUMN*** -->
+
+    <div id="page-right"> <!-- ***RIGHT COLUMN*** -->
+
+      <fieldset id="client_info" class="ui-widget ui-widget-content"> <!-- //CLIENT INFO// -->
+        <legend>Client Information</legend>
+        <!-- client info is:
+          name of client
+          select location of client, based on client chosen
+          name of contact at client
+          button to show client details:
+            name
+            address
+            general phone/fax
+            general email (remove?)
+            list of all contacts/phone/email/title
+            button to add/edit/remove contact?
+        -->
+         <!-- client name -->
+          <select id="client_name" name="client_name">
+            <!-- connect to list of clients -->
+          </select>
+          <label for="client_name">Client</label>
+          <br/><br/>
+          <!-- client location -->
+          <select id="client_location" name="client_location" disabled="true">
+            <!-- connect to list of client locations, based on client choice -->
+          </select>
+          <label for="client_location">Client Location</label>
+          <br/><br/>
+          <!-- client contact -->
+          <select id="client_contact" name="client_contact" disabled="true">
+            <!-- connect to list of client contacts, based on client choice -->
+          </select>
+          <label for="client_contact">Client Contact</label>
+          <br/><br/>
+
+          <button id="client_details" >Display Client Information</button>
+          <!-- on click, pop up client info:
+            name
+            address
+            general phone/fax
+            general email (remove?)
+            list of all contacts/phone/email/title
+            button to add/edit/remove contact? -->
+      </fieldset> <!-- //END CLIENT INFO// -->
+
+      <fieldset id="property_info" class="ui-widget ui-widget-content"> <!-- //PROPERTY INFO// -->
+        <legend>Property Information</legend>
+          <!-- property info is:
+            appraisal mgt firm
+            property type/sub-type
+            tennancy type
+            property name
+            client asset number
+            property number
+            property address, incl county
+
+            
+            **want to view property history, create engagement from historica contract
+          -->
+
+          <div class="property_details">
+            <div id="property_details_top">
+              <label class="clearfix">Client Asset Number: <input type="text" name="client_asset_number"/></label>
+              <br/>
+              <label class="clearfix">Property Number: <input type="text" name="property_number"/></label>
+              <br/>
+              <label class="clearfix">Property Name: <input type="text" name="property_name" /></label>
+              <br/>
+              <label class="clearfix">Address: <input type="text" name="property_street" /></label>
+              <br/>
+              <label class="clearfix">City: <input type="text" name="property_city" /></label>
+              <br/>
+
+              <label class="clearfix">State:<select id="property_state" name="property_state">
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AZ">AZ</option>
+                <option value="AR">AR</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DE">DE</option>
+                <option value="DC">DC</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="IA">IA</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="ME">ME</option>
+                <option value="MD">MD</option>
+                <option value="MA">MA</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MS">MS</option>
+                <option value="MO">MO</option>
+                <option value="MT">MT</option>
+                <option value="NE">NE</option>
+                <option value="NV">NV</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NY">NY</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WV">WV</option>
+                <option value="WI">WI</option>
+                <option value="WY">WY</option>
+              </select></label>
+
+            <br/>
+            <label class="clearfix">Postal Code: <input type="text" name="property_postalcode" /></label>
+            <br/>
+            <label class="clearfix">County: <input type="text" name="property_county" /></label>
+          </div>
+          <br/><br/>
+
+          <!-- appraisal mgt -->
+          <select id="appraisal_management_firm" name="appraisal_management_firm" style="width:70%;">
+            <!-- connect to list of appraisal mgt firms -->
+          </select>
+          <label for="appraisal_management_firm">Appraisal Mgt Firm</label>
+          <br/><br/>
+          <!-- property type -->
+          <select id="property_type" name="property_type" style="width:70%;">
+            <!-- connect to list of property types -->
+          </select>
+          <label for="property_type">Property Type</label>
+          <br/><br/>
+           <!-- property sub type -->
+          <select id="property_sub_type" name="property_sub_type" style="width:70%;">
+            <!-- connect to list of property sub- types -->
+          </select>
+          <label for="property_sub_type">Property Sub-Type</label>
+          <br/><br/>
+           <!-- tennancy type -->
+          <select id="tennancy_type" name="tennancy_type" style="width:70%;">
+            <option>Single</option>
+            <option>Multi</option>
+            <option>Not Applicable</option>
+          </select>
+          <label for="tennancy_type">Tennancy Type</label>
+          <br/>
+        </div>
+      </fieldset> <!-- //END PROPERTY INFO// -->
+      <br/>
+      <button class="letter_save" style="float: right;">Save</button>
+
+    </div> <!-- ***END RIGHT COLUMN*** -->
+  </form>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://dl.dropbox.com/u/1741138/jquery.ui.selectmenu.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>

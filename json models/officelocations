@@ -1,0 +1,3 @@
+http://127.0.0.1:8000/NPVClarity/officelocations/?format=json
+
+{"count": 4, "next": null, "previous": null, "results": [{"url": "http://127.0.0.1:8000/NPVClarity/officelocations/9/", "office_location": "Atlanta"}, {"url": "http://127.0.0.1:8000/NPVClarity/officelocations/10/", "office_location": "Chicago"}, {"url": "http://127.0.0.1:8000/NPVClarity/officelocations/11/", "office_location": "Los Angeles"}, {"url": "http://127.0.0.1:8000/NPVClarity/officelocations/12/", "office_location": "Newport Beach"}]}

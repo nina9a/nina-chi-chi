@@ -1,0 +1,3 @@
+http://127.0.0.1:8000/NPVClarity/tenancytypes/?format=json
+
+{"count": 3, "next": null, "previous": null, "results": [{"url": "http://127.0.0.1:8000/NPVClarity/tenancytypes/3/", "tenancy": "Single"}, {"url": "http://127.0.0.1:8000/NPVClarity/tenancytypes/4/", "tenancy": "Multi"}, {"url": "http://127.0.0.1:8000/NPVClarity/tenancytypes/5/", "tenancy": "Not Applicable"}]}
