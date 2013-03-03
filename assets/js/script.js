@@ -8,37 +8,64 @@ $(document).ready( function() {
 //BEGIN API Handling Object
   var dataAPI = {
 
-  	  //init()
-  	  //Call this method first to populate the properties with the API information
-  	  init:
-  	  function() {
-  	  	//... 1. Get Data
-  	  	//......(store all REST API urls in an array of key/pairs
-  	  	//...... key = name of table, value = REST API url )
-  	  	//... 2. Parse Data
-  	  	//...... (clean up data object to only contain relevant information - may be unneccessary)
-  	  	//... 3. Store Data in object properties for retrieval from outside this API object
-  	  	//...... (store retrieved data object as property of this object dataAPI)
-  	  },
-
   	  //getDataObject(url)
   	  //ajax GET request to the server at var url to retrieve a table
   	  //passes the json as a javascript object to method dataAPI.parseData
 	  getDataTable:
 	  function(url) {
-	    $.ajax({
-	        type: "GET",
-	        url: url,
-	        dataType: "json",
-	        cache: false,
-	        success: dataAPI.parseData(data),
-	        error: function (XMLHttpRequest, textStatus, errorThrown) { alert(errorThrown); }
-	    });
+	    // $.ajax({
+	    //     type: "GET",
+	    //     url: url,
+	    //     dataType: "json",
+	    //     cache: false,
+	    //     success: return data,
+	    //     error: function (XMLHttpRequest, textStatus, errorThrown) { alert(errorThrown); }
+	    // });
+
+		//Dev switch to return api objects
+		switch (url) {
+			case "officelocations" :
+				return {"count": 4, "next": null, "previous": null, "results": [{"url": "http://127.0.0.1:8000/NPVClarity/officelocations/9/", "office_location": "Atlanta"}, {"url": "http://127.0.0.1:8000/NPVClarity/officelocations/10/", "office_location": "Chicago"}, {"url": "http://127.0.0.1:8000/NPVClarity/officelocations/11/", "office_location": "Los Angeles"}, {"url": "http://127.0.0.1:8000/NPVClarity/officelocations/12/", "office_location": "Newport Beach"}]};
+				break;
+			case "projectmanagers" :
+				return {"count": 4, "next": null, "previous": null, "results": [{"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/9/", "last_name": "Walden", "first_name": "David"}, {"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/10/", "last_name": "Strohl", "first_name": "Keith"}, {"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/11/", "last_name": "Carr", "first_name": "Becky"}, {"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/12/", "last_name": "Wrzesinski", "first_name": "John"}]};
+				break;
+		}
 	  },
 
+	  //parseData(data, resultField)
+	  //data = oject of data returned by the REST API
+	  //results = array of fields needed from the results array
 	  parseData:
-	  function(data) {
-	  	//...
+	  function(dataObj, results) {
+	  	var data = { count : dataObj.count };
+
+	  	//initialize data result fields
+	  	for (var i = 0; i < results.length; i++) {
+	  		data[results[i]] = [];
+	  		//populate data result fields
+	  		for (var j = 0; j < dataObj.count; j++) {
+	  			data[results[i]].push(dataObj.results[j][results[i]]);
+	  		}
+	  	}
+	  	return data;
+	  },
+
+	  //return data object with results of office_location REST call
+	  getOfficeLocations:
+	  function() {
+	  	var officelocations_Obj = this.getDataTable("officelocations");
+	  	this.officelocations = officelocations_Obj;
+	  	var officelocations_result = this.parseData(officelocations_Obj, ['office_location']);
+	  	return officelocations_result;
+	  },
+
+	  getProjectManagers:
+	  function() {
+	  	var projectmanagers_Obj = this.getDataTable('projectmanagers');
+	  	this.projectmanagers = projectmanagers_Obj;
+	  	var projectmanagers_result = this.parseData(projectmanagers_Obj, ['first_name', 'last_name']);
+	  	return projectmanagers_result;
 	  }
 
   }
@@ -213,6 +240,31 @@ $(document).ready( function() {
 			}
 		} );
 	}
+
+	//populateSelectMenus();
+	//Set the contents of the select menus
+	function populateSelectMenus() {
+		//append options to #engagement_office
+		function officeLocations() {
+			var data = dataAPI.getOfficeLocations(),
+				$selectMenu = $('#engagement_office');
+			for (var i = 0; i < data.count; i++) {
+				$selectMenu.append("<option>" + data['office_location'][i] + "</option>");
+			}
+		}
+		//append options to #engagement_manager
+		function projectManagers() {
+			var data = dataAPI.getProjectManagers(),
+				$selectMenu = $('#engagement_manager');
+			for (var i = 0; i < data.count; i++) {
+				$selectMenu.append("<option>" + data['first_name'][i] + " " + data['last_name'][i] + '</option>');
+			}
+		}
+
+		//begin populateSelectMenus execution
+		officeLocations();
+		projectManagers();
+	}
 //FUNCTION DECLARATIONS END;
 	
 //BEGIN EXECUTION
@@ -220,6 +272,8 @@ $(document).ready( function() {
 
 	//Trigger addContractYear() once on load
 	addContractYear();
+
+	populateSelectMenus();
 
 	initStyleButtons(); //Initialize the style of buttons
 	armBindings(); //Click handlers for buttons on the page
