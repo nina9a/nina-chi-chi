@@ -37,11 +37,15 @@ $(document).ready( function() {
 	  },
 
 	  //parseData(data, resultField)
-	  //data = oject of data returned by the REST API
+	  //url = REST API url
+	  //dataName = name of object
 	  //results = array of fields needed from the results array
 	  parseData:
-	  function(dataObj, results) {
-	  	var data = { count : dataObj.count };
+	  function(url, dataName, results) {
+
+	  	var dataObj = this.getDataTable(url); //Get the API return object
+	  	var data = { count : dataObj.count }; //Initialize return data object
+	  	this[dataName + "_Orig"] = dataObj;   //Store local instance of original API return object
 
 	  	//initialize data result fields
 	  	for (var i = 0; i < results.length; i++) {
@@ -51,31 +55,26 @@ $(document).ready( function() {
 	  			data[results[i]].push(dataObj.results[j][results[i]]);
 	  		}
 	  	}
+
 	  	return data;
 	  },
 
 	  //return data object with results of office_location REST call
 	  getOfficeLocations:
 	  function() {
-	  	var officelocations_Obj = this.getDataTable("officelocations");
-	  	this.officelocations = officelocations_Obj;
-	  	var officelocations_result = this.parseData(officelocations_Obj, ['office_location']);
+	  	var officelocations_result = this.parseData("officelocations", "officelocations", ['office_location']);
 	  	return officelocations_result;
 	  },
 
 	  getProjectManagers:
 	  function() {
-	  	var projectmanagers_Obj = this.getDataTable('projectmanagers');
-	  	this.projectmanagers = projectmanagers_Obj;
-	  	var projectmanagers_result = this.parseData(projectmanagers_Obj, ['first_name', 'last_name']);
+	  	var projectmanagers_result = this.parseData('projectmanagers', 'projectmanagers', ['first_name', 'last_name']);
 	  	return projectmanagers_result;
 	  },
 
 	  getAppraisers:
 	  function() {
-	  	var appraisers_Obj = this.getDataTable('appraisers');
-	  	this.appraisers = appraisers_Obj;
-	  	var appraisers_result = this.parseData(appraisers_Obj, ['first_name', 'last_name']);
+	  	var appraisers_result = this.parseData('appraisers', 'appraisers', ['first_name', 'last_name']);
 	  	return appraisers_result;
 	  }
 
@@ -257,20 +256,24 @@ $(document).ready( function() {
 	//populateSelectMenus();
 	//Set the contents of the select menus
 	function populateSelectMenus() {
-		//append options to #engagement_office
-		function officeLocations() {
-			var data = dataAPI.getOfficeLocations(),
-				$selectMenu = $('#engagement_office');
+
+		//getFunc = function that returns the appropriate data (ie: dataAPI.getOfficeLocations...)
+		//elSelector = select menu selector (as string)
+		//stringsInOrder = array of strings indicating the property names to concatenate into the select menu
+		function appendToSelect(getFunc, elSelector, stringsInOrder) {
+			var data = getFunc.call(dataAPI),
+				numProperties = stringsInOrder.length,
+				$selectMenu = $(elSelector);
+			$selectMenu = $($selectMenu.get($selectMenu.length-1)); //Get last instance of the select menu
+
+			//Append options to select menu
 			for (var i = 0; i < data.count; i++) {
-				$selectMenu.append("<option>" + data['office_location'][i] + "</option>");
-			}
-		}
-		//append options to #engagement_manager
-		function projectManagers() {
-			var data = dataAPI.getProjectManagers(),
-				$selectMenu = $('#engagement_manager');
-			for (var i = 0; i < data.count; i++) {
-				$selectMenu.append("<option>" + data['first_name'][i] + " " + data['last_name'][i] + '</option>');
+				if (numProperties == 1) {  //Single property append
+					$selectMenu.append("<option>" + data[stringsInOrder[0]][i] + "</option>");
+				}
+				else if (numProperties == 2) {  //Double property append (ie: first_name + last_name)
+					$selectMenu.append("<option>" + data[stringsInOrder[0]][i] + " " + data[stringsInOrder[1]][i] + '</option>');
+				}
 			}
 		}
 
@@ -293,8 +296,8 @@ $(document).ready( function() {
 		}
 
 		//begin populateSelectMenus execution
-		officeLocations();
-		projectManagers();
+		appendToSelect(dataAPI.getOfficeLocations, '#engagement_office', ['office_location']); //append options to #engagement_office
+		appendToSelect(dataAPI.getProjectManagers, '#engagement_manager', ['first_name', 'last_name']); //append options to #engagement_manager
 		appraisers();
 		reviewers();
 	}
