@@ -18,7 +18,7 @@ $(document).ready( function() {
 	    //     url: url,
 	    //     dataType: "json",
 	    //     cache: false,
-	    //     success: return data,
+	    //     success: function(data) { return data; },
 	    //     error: function (XMLHttpRequest, textStatus, errorThrown) { alert(errorThrown); }
 	    // });
 
@@ -31,7 +31,7 @@ $(document).ready( function() {
 				return {"count": 4, "next": null, "previous": null, "results": [{"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/9/", "last_name": "Walden", "first_name": "David"}, {"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/10/", "last_name": "Strohl", "first_name": "Keith"}, {"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/11/", "last_name": "Carr", "first_name": "Becky"}, {"url": "http://127.0.0.1:8000/NPVClarity/projectmanagers/12/", "last_name": "Wrzesinski", "first_name": "John"}]};
 				break;
 			case "appraisers" :
-				return {"count": 69, "next": "http://127.0.0.1:8000/NPVClarity/appraisers/?page=2&format=json", "previous": null, "results": [{"url": "http://127.0.0.1:8000/NPVClarity/appraisers/7/", "last_name": "Thatcher", "first_name": "Heidi", "title": "Principal", "standard_fee_split": 0.475, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "134000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "1q2w3e4r"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/8/", "last_name": "Gathman", "first_name": "Mike", "title": "Director", "standard_fee_split": 0.5, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "100000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "iggy2004"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/10/", "last_name": "Park", "first_name": "Susan", "title": "Director", "standard_fee_split": 0.45, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "75000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "khp111409"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/13/", "last_name": "Williams", "first_name": "Clarence", "title": "Senior Associate", "standard_fee_split": 0.4, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "0.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "cwill107"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/14/", "last_name": "Mock", "first_name": "James", "title": "Senior Associate", "standard_fee_split": 0.5, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "30000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "2004jwm1077"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/15/", "last_name": "Fears", "first_name": "Evan", "title": "Senior Associate", "standard_fee_split": 0.4, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "44400.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "atlbraves1"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/16/", "last_name": "Cheng", "first_name": "Stephen", "title": "Associate", "standard_fee_split": 0.425, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "60000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "280inorth"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/18/", "last_name": "Harrison", "first_name": "Adam", "title": "Associate", "standard_fee_split": 0.45, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "100000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "npvadvisors1"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/20/", "last_name": "Hartsock", "first_name": "Molly", "title": "Senior Associate", "standard_fee_split": 0.45, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "75000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "Mmd980sea"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/21/", "last_name": "Park", "first_name": "Brian", "title": "Associate", "standard_fee_split": 0.4, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "50000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "bvpark123"}]}
+				return {"count": 2, "next": null, "previous": null, "results": [{"url": "http://127.0.0.1:8000/NPVClarity/appraisers/7/", "last_name": "Thatcher", "first_name": "Heidi", "title": "Principal", "standard_fee_split": 0.475, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "134000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "1q2w3e4r"}, {"url": "http://127.0.0.1:8000/NPVClarity/appraisers/8/", "last_name": "Gathman", "first_name": "Mike", "title": "Director", "standard_fee_split": 0.5, "subject_to_director_overirde": false, "overide": 0.0, "annual_salary": "100000.0000", "address_1": null, "address_2": null, "city": null, "state": null, "zip_code": null, "phone_1": null, "phone_2": null, "mobile_phone": null, "email_address": null, "expense_password": "iggy2004"}]};
 				break;
 		}
 	  },
@@ -69,6 +69,14 @@ $(document).ready( function() {
 	  	this.projectmanagers = projectmanagers_Obj;
 	  	var projectmanagers_result = this.parseData(projectmanagers_Obj, ['first_name', 'last_name']);
 	  	return projectmanagers_result;
+	  },
+
+	  getAppraisers:
+	  function() {
+	  	var appraisers_Obj = this.getDataTable('appraisers');
+	  	this.appraisers = appraisers_Obj;
+	  	var appraisers_result = this.parseData(appraisers_Obj, ['first_name', 'last_name']);
+	  	return appraisers_result;
 	  }
 
   }
@@ -118,6 +126,8 @@ $(document).ready( function() {
 									 .text('View/Edit Fee Split');
 
 		/* -- ADD DROPDOWN OPTIONS -- */
+		//populateSelectMenus.appraisers(); //??????
+
 		//Construct appraiser block
 		$formLabel.append(' Appraiser').prepend($selectEl);
 		$appraiserBlock.append($formLabel).append($breakTag).append($feeSplit).append($breakTag);
@@ -264,9 +274,29 @@ $(document).ready( function() {
 			}
 		}
 
+		function appraisers() {
+			var data = dataAPI.getAppraisers(),
+				$selectMenu = $('.engagement_appraiser');
+				$selectMenu = $($selectMenu.get($selectMenu.length-1));
+			for (var i = 0; i < data.count; i++) {
+				$selectMenu.append("<option>" + data['first_name'][i] + " " + data['last_name'][i] + '</option>');
+			}
+		}
+
+		function reviewers() {
+			var data = dataAPI.getAppraisers(),
+				$selectMenu = $('.engagement_reviewer');
+				$selectMenu = $($selectMenu.get($selectMenu.length-1));
+			for (var i = 0; i < data.count; i++) {
+				$selectMenu.append("<option>" + data['first_name'][i] + " " + data['last_name'][i] + '</option>');
+			}
+		}
+
 		//begin populateSelectMenus execution
 		officeLocations();
 		projectManagers();
+		appraisers();
+		reviewers();
 	}
 //FUNCTION DECLARATIONS END;
 	
